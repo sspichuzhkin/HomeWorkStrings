@@ -44,7 +44,6 @@ public class Main {
             }
             partOfPhrase.append(word).append(" ");
         }
-        String fullNameAdapted = partOfPhrase.toString();
-        System.out.println("Данные ФИО сотрудника — " + fullNameAdapted);
+        System.out.println("Данные ФИО сотрудника — " + partOfPhrase);
     }
 }
