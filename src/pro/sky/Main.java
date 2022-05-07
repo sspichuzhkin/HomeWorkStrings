@@ -25,27 +25,26 @@ public class Main {
         System.out.println("Данные ФИО сотрудника для заполнения отчета — " + fullNameForReport);
     }
 
-    public static String changeCharInPosition(int position, char ch, String str){
+    public static String changeCharInPosition(int position, char ch, String str) {
         char[] charArray = str.toCharArray();
         charArray[position] = ch;
         return new String(charArray);
     }
+
     public static void Task3() {
 
         String fullName = "Иванов Семён Семёнович";
         String[] words = fullName.split(" ");
-        String partOfPhrase = "";
+        StringBuilder partOfPhrase = new StringBuilder();
 
-        for (int i = 0; i < words.length; i++){
-            partOfPhrase = partOfPhrase + words[i] + " ";
-            if (partOfPhrase.contains("ё")) {
-                int indexValue = partOfPhrase.indexOf("ё");
-                partOfPhrase = changeCharInPosition(indexValue, 'е', partOfPhrase);
-                }
+        for (String word : words) {
+            if (word.contains("ё")) {
+                int indexValue = word.indexOf("ё");
+                word = changeCharInPosition(indexValue, 'е', word);
             }
-        String fullNameAdapted = partOfPhrase;
-        fullNameAdapted = fullNameAdapted.replace("[", "");
-        fullNameAdapted = fullNameAdapted.replace("]", "");
+            partOfPhrase.append(word).append(" ");
+        }
+        String fullNameAdapted = partOfPhrase.toString();
         System.out.println("Данные ФИО сотрудника — " + fullNameAdapted);
     }
 }
