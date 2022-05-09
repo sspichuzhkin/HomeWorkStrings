@@ -30,7 +30,6 @@ public class Main {
         charArray[position] = ch;
         return new String(charArray);
     }
-
     public static void Task3() {
 
         String fullName = "Иванов Семён Семёнович";
@@ -38,7 +37,7 @@ public class Main {
         StringBuilder partOfPhrase = new StringBuilder();
 
         for (String word : words) {
-            if (word.contains("ё")) {
+            while (word.contains("ё")) {
                 int indexValue = word.indexOf("ё");
                 word = changeCharInPosition(indexValue, 'е', word);
             }
